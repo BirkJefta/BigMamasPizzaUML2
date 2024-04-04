@@ -46,5 +46,29 @@ namespace PizzariaAttempt2 {
                 }
         }
 
+        public static Pizza SearchPizzaByName(string name)
+        {
+            string formattedName = char.ToUpper(name[0]) + name.Substring(1);
+            Pizza pizzaSearch = null;
+            foreach (Pizza pizza in PizzaDataLayer.DisplayMenu())
+            {
+                if (pizza.Name == formattedName)
+                {
+                    pizzaSearch = pizza;
+                }
+
+            }
+            if (pizzaSearch != null)
+            {
+                Console.WriteLine("your pizza is: \n" + pizzaSearch);
+            }
+            else
+            {
+                Console.WriteLine("Did not find pizza, please try again");
+            }
+            return pizzaSearch;
+
+        }
+
     }
 }

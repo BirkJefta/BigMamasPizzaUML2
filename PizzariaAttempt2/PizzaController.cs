@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace PizzariaAttempt2 {
     public class PizzaController {
@@ -80,6 +81,19 @@ namespace PizzariaAttempt2 {
             }
             return foundPizza;
         }
-
+        public Pizza SearchPizzaByName()
+        {
+            
+            Pizza foundPizza = null;
+            
+            while (foundPizza == null)
+            {
+                Console.WriteLine("What is the name of the pizza?");
+                string name = Console.ReadLine();
+                foundPizza = PizzaManager.SearchPizzaByName(name);
+                
+            }
+            return foundPizza;    
+        }
     }
 }

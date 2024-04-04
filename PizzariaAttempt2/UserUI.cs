@@ -70,8 +70,13 @@ namespace PizzariaAttempt2 {
                         break;
                     case "4":
                         Console.WriteLine($"YOU PRESSED {numberEntered}, TO SEARCH BY NAME");
+                        Console.WriteLine("");
+                        Console.WriteLine("Here is the menu:");
+                        pizzaController.DisplayMenu();
+                        Console.WriteLine("");
                         
-                        
+                        pizzaController.SearchPizzaByName();
+
 
                         break;
                     case "5":
