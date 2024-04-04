@@ -16,17 +16,19 @@ namespace PizzariaAttempt2 {
         {
 
             PizzaController pizzaController = new PizzaController();
+            OrderController orderController = new OrderController();
 
             bool proceed = true;
             string numberEntered;
             List<string> menuList = new List<string>()
             {
                 "1: Display pizza-menu",
-                "2: Add pizza to menu",
-                "3: Search pizza by number",
-                "4: Search pizza by name",
-                "5: Delete a pizza",
-                "6: Quit program"
+                "2: Create a new order",
+                "3: Add pizza to menu",
+                "4: Search pizza by number",
+                "5: Search pizza by name",
+                "6: Delete a pizza",
+                "7: Quit program"
             };
 
             do
@@ -47,16 +49,38 @@ namespace PizzariaAttempt2 {
                     case "1":
                         Console.WriteLine($"YOU PRESSED {numberEntered}, TO SEE MENU");
                         pizzaController.DisplayMenu();
-
+                        break;
+                    case "2":
+                        bool done = false;
                         
+                            Console.WriteLine($"YOU PRESSED {numberEntered}, TO ADD A NEW PIZZA TO YOUR ORDER");
+                            Console.WriteLine("");
+                        while (done == false)
+                        {
+                            pizzaController.DisplayMenu();
+                            Console.WriteLine("");
+                            Console.WriteLine("Please enter the number of the Pizza you want to add");
+                            orderController.AddPizzaToOrder(pizzaController.SearchPizzaByNumber());
+                            Console.WriteLine("Pizza was added to the order");
+                            Console.WriteLine("Your order is now:");
+                            orderController.OrderedPizzas();
+                            Console.WriteLine("");
+                            Console.WriteLine("Do you want to add more pizzas?");
+                            Console.WriteLine("Press y for yes");
+                            string answer = Console.ReadLine().ToLower();
+                            if (answer != "y")
+                            {
+                                done = true;
+                            }
+                        }
                         break;
 
-                    case "2":
+                    case "3":
                         Console.WriteLine($"YOU PRESSED {numberEntered}, TO ADD A PIZZA TO MENU");
                         Console.WriteLine("");
                         Console.WriteLine($"The pizza {pizzaController.CreatePizza()} was added");
                         break;
-                    case "3":
+                    case "4":
                         Console.WriteLine($"YOU PRESSED {numberEntered}, TO SEARCH BY NUMBER");
                         Console.WriteLine("");
                         Console.WriteLine("Here is the menu:");
@@ -66,7 +90,7 @@ namespace PizzariaAttempt2 {
                         Console.WriteLine($"The pizza was: {pizzaController.SearchPizzaByNumber()}");
                         
                         break;
-                    case "4":
+                    case "5":
                         Console.WriteLine($"YOU PRESSED {numberEntered}, TO SEARCH BY NAME");
                         Console.WriteLine("");
                         Console.WriteLine("Here is the menu:");
@@ -77,7 +101,7 @@ namespace PizzariaAttempt2 {
 
 
                         break;
-                    case "5":
+                    case "6":
                         Console.WriteLine($"YOU PRESSED {numberEntered} TO REMOVE A PIZZA");
                         Console.WriteLine("\n");
                         Console.WriteLine("This is the current Menu");
@@ -91,7 +115,7 @@ namespace PizzariaAttempt2 {
                         pizzaController.DisplayMenu();
                        
                         break;
-                    case "6":
+                    case "7":
                         Console.WriteLine($"YOU PRESSED {numberEntered}, TO QUIT");
                         Console.WriteLine("Are you sure");
                         Console.WriteLine("Press y for yes , otherwise press n for no");

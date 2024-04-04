@@ -10,11 +10,17 @@ namespace PizzariaAttempt2 {
         public string Address { get; private set; }
         public string Email { get; private set; }
 
-        public Customer(string name, string adress, string email) 
+        public void CustomerName(string name) 
         {
             Name = name;
-            Address = adress;
+        }
+
+        public void DetailsForMembership(string name, string address, string email)
+        {
+            Name += name;
+            Address = address;
             Email = email;
         }
+
     }
 }
