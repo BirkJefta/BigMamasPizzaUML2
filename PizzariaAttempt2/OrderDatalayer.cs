@@ -19,6 +19,10 @@ namespace PizzariaAttempt2 {
         {
             return orderedPizzas;
         }
+        public void ClearOrderList ()
+        {
+            orderedPizzas.Clear ();
+        }
 
         
     }

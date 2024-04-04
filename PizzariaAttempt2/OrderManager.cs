@@ -38,6 +38,11 @@ namespace PizzariaAttempt2 {
 
             return uniquePizzaDictionary;
         }
+        public void clearOrderList () 
+        { 
+            OrderDatalayer orderDatalayer = new OrderDatalayer ();
+            orderDatalayer.ClearOrderList();
+        }
 
         
 

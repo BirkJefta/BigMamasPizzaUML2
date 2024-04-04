@@ -73,7 +73,10 @@ namespace PizzariaAttempt2 {
                             if (answer != "y")
                             {
                                 done = true;
+                                orderController.clearOrderList();
                             }
+                            
+                            
                         }
                         break;
 

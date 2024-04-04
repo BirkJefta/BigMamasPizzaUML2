@@ -21,10 +21,17 @@ namespace PizzariaAttempt2 {
             foreach (var pizza in orderManager.PizzasAddedToOrder())
             {
                 Console.WriteLine("");
-                Console.WriteLine($" amount :{pizza.Value}, Pizza :{pizza.Key.Name} Price: {pizza.Key.Price}");
+                Console.WriteLine($"Amount :{pizza.Value}, Pizza :{pizza.Key.Name} " +
+                    $"  Price: {pizza.Key.Price*pizza.Value},-");
             }
 
         }
+        public void clearOrderList ()
+        {
+            OrderManager orderManager = new OrderManager();
+            orderManager.clearOrderList();
+        }
+
 
     }
 }
