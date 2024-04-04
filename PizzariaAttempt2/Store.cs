@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pizzaria {
+namespace PizzariaAttempt2 {
     public class Store {
 
         public void Test()

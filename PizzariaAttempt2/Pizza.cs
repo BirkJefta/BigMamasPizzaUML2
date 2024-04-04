@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pizzaria {
+namespace PizzariaAttempt2 {
     public class Pizza {
         public string Name { get;  private set; }
         public string Toppings { get;  private set; }
