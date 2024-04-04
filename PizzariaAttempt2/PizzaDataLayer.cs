@@ -22,7 +22,11 @@ namespace PizzariaAttempt2 {
         {
             return _menu;
         }
-
+        public static void DeletePizza(int number)
+        {
+            
+            _menu.Remove(_menu[number]);
+        }
 
 
 

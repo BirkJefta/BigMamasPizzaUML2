@@ -17,8 +17,6 @@ namespace PizzariaAttempt2 {
 
             PizzaController pizzaController = new PizzaController();
 
-
-
             bool proceed = true;
             string numberEntered;
             List<string> menuList = new List<string>()
@@ -82,6 +80,15 @@ namespace PizzariaAttempt2 {
                     case "5":
                         Console.WriteLine($"YOU PRESSED {numberEntered} TO REMOVE A PIZZA");
                         Console.WriteLine("\n");
+                        Console.WriteLine("This is the current Menu");
+                        Console.WriteLine("\n");
+                        pizzaController.DisplayMenu();
+                        Console.WriteLine("");
+                        pizzaController.DeletePizza();
+                        Console.WriteLine("");
+                        Console.WriteLine("You succesfully deleted the pizza");
+                        Console.WriteLine("The menu is now:");
+                        pizzaController.DisplayMenu();
                        
                         break;
                     case "6":

@@ -95,5 +95,18 @@ namespace PizzariaAttempt2 {
             }
             return foundPizza;    
         }
+
+
+
+        public void DeletePizza() 
+        {
+            PizzaManager pizzaManager = new PizzaManager();
+            Console.WriteLine("What is the number of the pizza you want to delete?");
+            
+            pizzaManager.DeletePizza(SearchPizzaByNumber());
+            
+        }
     }
+    
+
 }

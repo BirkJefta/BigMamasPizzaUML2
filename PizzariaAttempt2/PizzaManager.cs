@@ -10,10 +10,13 @@ namespace PizzariaAttempt2 {
 
         public List<Pizza> DisplayMenu()
         {
+            int i = 1;
             foreach (Pizza pizza in PizzaDataLayer.DisplayMenu())
             {
+                
                 Console.WriteLine("");
-                Console.WriteLine(pizza);
+                Console.WriteLine($"{i},{pizza}");
+                i++;
             }
 
             return PizzaDataLayer.DisplayMenu();
@@ -60,15 +63,28 @@ namespace PizzariaAttempt2 {
             }
             if (pizzaSearch != null)
             {
+                Console.WriteLine("");
                 Console.WriteLine("your pizza is: \n" + pizzaSearch);
             }
             else
             {
+                Console.WriteLine("");
                 Console.WriteLine("Did not find pizza, please try again");
             }
             return pizzaSearch;
 
         }
+        public void DeletePizza (Pizza pizzaToDelete)
+        {
+            int indexOfPizzaToDelete = -1;
+            indexOfPizzaToDelete = PizzaDataLayer.DisplayMenu().IndexOf(pizzaToDelete);
+            if (indexOfPizzaToDelete != -1)
+            {
+                PizzaDataLayer.DeletePizza(indexOfPizzaToDelete);
+            }
+           
+        }
 
     }
+
 }
