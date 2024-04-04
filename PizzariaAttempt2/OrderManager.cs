@@ -31,17 +31,16 @@ namespace PizzariaAttempt2 {
                     
                     uniquePizzaDictionary [orderedPizza] ++;
                 }
-
+                
                 
             }
-            foreach (var pizza in uniquePizzaDictionary)
-            {
-                Console.WriteLine("");
-                Console.WriteLine($"You ordered:\n amount :{pizza.Value}, \n Pizza: {pizza.Key}");
-            }
+            
 
             return uniquePizzaDictionary;
         }
+
+        
+
 
         //TODO: lav en udregning for prisen af pizzaer
         //TODO: tilføj kundens navn

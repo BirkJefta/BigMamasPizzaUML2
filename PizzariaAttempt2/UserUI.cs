@@ -64,6 +64,8 @@ namespace PizzariaAttempt2 {
                             Console.WriteLine("Pizza was added to the order");
                             Console.WriteLine("Your order is now:");
                             orderController.OrderedPizzas();
+                            OrderManager orderManager = new OrderManager();
+                            
                             Console.WriteLine("");
                             Console.WriteLine("Do you want to add more pizzas?");
                             Console.WriteLine("Press y for yes");
