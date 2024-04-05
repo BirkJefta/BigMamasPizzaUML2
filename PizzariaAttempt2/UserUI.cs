@@ -55,17 +55,18 @@ namespace PizzariaAttempt2 {
                         
                             Console.WriteLine($"YOU PRESSED {numberEntered}, TO ADD A NEW PIZZA TO YOUR ORDER");
                             Console.WriteLine("");
+                            string name = orderController.customerName();
                         while (done == false)
                         {
+                            
                             pizzaController.DisplayMenu();
                             Console.WriteLine("");
-                            Console.WriteLine("Please enter the number of the Pizza you want to add");
+                            Console.WriteLine($"{name},Please enter the number of the Pizza you want to add");
                             orderController.AddPizzaToOrder(pizzaController.SearchPizzaByNumber());
                             Console.WriteLine("Pizza was added to the order");
-                            Console.WriteLine("Your order is now:");
+                            Console.WriteLine($"ORDER FOR {name}:");
                             orderController.OrderedPizzas();
-                            OrderManager orderManager = new OrderManager();
-                            
+                            Console.WriteLine();
                             Console.WriteLine("");
                             Console.WriteLine("Do you want to add more pizzas?");
                             Console.WriteLine("Press y for yes");

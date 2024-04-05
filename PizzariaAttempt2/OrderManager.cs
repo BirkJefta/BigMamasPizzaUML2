@@ -44,6 +44,12 @@ namespace PizzariaAttempt2 {
             orderDatalayer.ClearOrderList();
         }
 
+        public string customerName(string name)
+        {
+            Customer customer = new Customer ();
+            return customer.CustomerName(name);
+        }
+
         
 
 

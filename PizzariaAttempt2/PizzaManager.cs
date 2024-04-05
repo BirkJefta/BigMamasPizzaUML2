@@ -24,7 +24,7 @@ namespace PizzariaAttempt2 {
         public static void InitialMenu()
         {
             
-                CreatePizza("Margherita",80, "Tomato & Cheese");
+                CreatePizza("Margherita",80.5, "Tomato & Cheese");
                 CreatePizza("Vesuvio", 92, "Tomato, Cheese & Ham");
                 CreatePizza("Capricciosa", 98, "Tomato, Cheese, Ham & Mushroom ");
         }
