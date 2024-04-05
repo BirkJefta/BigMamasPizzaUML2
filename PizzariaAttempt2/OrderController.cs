@@ -6,20 +6,37 @@ using System.Threading.Tasks;
 
 namespace PizzariaAttempt2 {
     public class OrderController {
+        OrderManager _orderManager;
+
+        public OrderController() 
+        { 
+            _orderManager = new OrderManager();
+        }
 
         public void AddPizzaToOrder(Pizza pizza) 
         {
+            bool ValidIndput = false;
             
-            OrderManager orderManager = new OrderManager();
             Console.WriteLine("How many do you want?");
-            int numberOfTimes = int.Parse(Console.ReadLine());
-            orderManager.AddPizzaToOrder(pizza, numberOfTimes);
+            while (ValidIndput == false)
+            {
+                try
+                {
+                    int numberOfTimes = int.Parse(Console.ReadLine());
+                    _orderManager.AddPizzaToOrder(pizza, numberOfTimes);
+                    ValidIndput = true;
+                }
+                catch 
+                {
+                    Console.WriteLine("Please enter a number");
+                }
+            }
         }
         public double OrderedPizzas ()
         { 
             double totalPrice = 0;
-            OrderManager orderManager = new OrderManager();
-            foreach (var pizza in orderManager.PizzasAddedToOrder())
+            
+            foreach (var pizza in _orderManager.PizzasAddedToOrder())
             {
                 double price = pizza.Key.Price * pizza.Value; 
                 Console.WriteLine("");
@@ -32,16 +49,16 @@ namespace PizzariaAttempt2 {
         }
         public void clearOrderList ()
         {
-            OrderManager orderManager = new OrderManager();
-            orderManager.clearOrderList();
+            
+            _orderManager.clearOrderList();
         }
         public string customerName() 
         {
-            OrderManager orderManager =new OrderManager();
+            
             Console.WriteLine("What is your name?");
             string name = Console.ReadLine();
             string formattedName = char.ToUpper(name[0]) + name.Substring(1);
-            return orderManager.customerName(formattedName);
+            return _orderManager.customerName(formattedName);
         }
 
         

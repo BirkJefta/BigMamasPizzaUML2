@@ -53,7 +53,6 @@ namespace PizzariaAttempt2 {
         
 
 
-        //TODO: lav en udregning for prisen af pizzaer
-        //TODO: tilføj kundens navn
+       
     }
 }

@@ -30,9 +30,7 @@ namespace PizzariaAttempt2 {
         }
         public static Pizza CreatePizza (string name, double price, string toppings) 
         {
-            Pizza pizza = new Pizza(name, toppings, price);
-            PizzaDataLayer.CreatePizza(pizza);
-            return pizza;
+            return PizzaDataLayer.CreatePizza(name,price, toppings);
         }
         public Pizza SearchPizzaByNumber(int number)
         {

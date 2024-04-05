@@ -7,16 +7,19 @@ using System.Threading.Tasks;
 
 namespace PizzariaAttempt2 {
     public class UserUI {
+        private PizzaController _pizzaController;
+        private OrderController _orderController;
         public UserUI()
         {
             PizzaController.InitialMenu();
+            _orderController = new OrderController();
+            _pizzaController = new PizzaController();
         }
 
         public void Run()
         {
 
-            PizzaController pizzaController = new PizzaController();
-            OrderController orderController = new OrderController();
+            
 
             bool proceed = true;
             string numberEntered;
@@ -48,24 +51,25 @@ namespace PizzariaAttempt2 {
                 {
                     case "1":
                         Console.WriteLine($"YOU PRESSED {numberEntered}, TO SEE MENU");
-                        pizzaController.DisplayMenu();
+                        _pizzaController.DisplayMenu();
                         break;
                     case "2":
                         bool done = false;
                         
                             Console.WriteLine($"YOU PRESSED {numberEntered}, TO ADD A NEW PIZZA TO YOUR ORDER");
                             Console.WriteLine("");
-                            string name = orderController.customerName();
+                            string name = _orderController.customerName();
                         while (done == false)
                         {
                             
-                            pizzaController.DisplayMenu();
+                            _pizzaController.DisplayMenu();
                             Console.WriteLine("");
                             Console.WriteLine($"{name},Please enter the number of the Pizza you want to add");
-                            orderController.AddPizzaToOrder(pizzaController.SearchPizzaByNumber());
+                            _orderController.AddPizzaToOrder(_pizzaController.SearchPizzaByNumber());
                             Console.WriteLine("Pizza was added to the order");
-                            Console.WriteLine($"ORDER FOR {name}:");
-                            orderController.OrderedPizzas();
+                            Console.WriteLine("");
+                            Console.WriteLine($"Order For {name}:");
+                            _orderController.OrderedPizzas();
                             Console.WriteLine();
                             Console.WriteLine("");
                             Console.WriteLine("Do you want to add more pizzas?");
@@ -74,7 +78,7 @@ namespace PizzariaAttempt2 {
                             if (answer != "y")
                             {
                                 done = true;
-                                orderController.clearOrderList();
+                                _orderController.clearOrderList();
                             }
                             
                             
@@ -84,26 +88,26 @@ namespace PizzariaAttempt2 {
                     case "3":
                         Console.WriteLine($"YOU PRESSED {numberEntered}, TO ADD A PIZZA TO MENU");
                         Console.WriteLine("");
-                        Console.WriteLine($"The pizza {pizzaController.CreatePizza()} was added");
+                        Console.WriteLine($"The pizza {_pizzaController.CreatePizza()} was added");
                         break;
                     case "4":
                         Console.WriteLine($"YOU PRESSED {numberEntered}, TO SEARCH BY NUMBER");
                         Console.WriteLine("");
                         Console.WriteLine("Here is the menu:");
-                        pizzaController.DisplayMenu();
+                        _pizzaController.DisplayMenu();
                         Console.WriteLine("");
                         Console.WriteLine("What is the number of the pizza you want to find?");
-                        Console.WriteLine($"The pizza was: {pizzaController.SearchPizzaByNumber()}");
+                        Console.WriteLine($"The pizza was: {_pizzaController.SearchPizzaByNumber()}");
                         
                         break;
                     case "5":
                         Console.WriteLine($"YOU PRESSED {numberEntered}, TO SEARCH BY NAME");
                         Console.WriteLine("");
                         Console.WriteLine("Here is the menu:");
-                        pizzaController.DisplayMenu();
+                        _pizzaController.DisplayMenu();
                         Console.WriteLine("");
                         
-                        pizzaController.SearchPizzaByName();
+                        _pizzaController.SearchPizzaByName();
 
 
                         break;
@@ -112,13 +116,13 @@ namespace PizzariaAttempt2 {
                         Console.WriteLine("\n");
                         Console.WriteLine("This is the current Menu");
                         Console.WriteLine("\n");
-                        pizzaController.DisplayMenu();
+                        _pizzaController.DisplayMenu();
                         Console.WriteLine("");
-                        pizzaController.DeletePizza();
+                        _pizzaController.DeletePizza();
                         Console.WriteLine("");
                         Console.WriteLine("You succesfully deleted the pizza");
                         Console.WriteLine("The menu is now:");
-                        pizzaController.DisplayMenu();
+                        _pizzaController.DisplayMenu();
                        
                         break;
                     case "7":

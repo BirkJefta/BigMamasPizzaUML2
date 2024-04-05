@@ -8,11 +8,15 @@ using System.Xml.Linq;
 
 namespace PizzariaAttempt2 {
     public class PizzaController {
-        public PizzaController() { }
+        private PizzaManager _pizzaManager;
+        public PizzaController() 
+        {
+            _pizzaManager = new PizzaManager();
+        }
 
         public List<Pizza> DisplayMenu()
         {
-            PizzaManager _pizzaManager = new PizzaManager();
+            
             return _pizzaManager.DisplayMenu();
         }
         public static void InitialMenu()
@@ -54,7 +58,7 @@ namespace PizzariaAttempt2 {
 
         public Pizza SearchPizzaByNumber()
         {
-            PizzaManager pizzaManager = new PizzaManager();
+            
             int enteredNumber = 0;
             bool isValid = true;
             Pizza foundPizza = null;
@@ -66,7 +70,7 @@ namespace PizzariaAttempt2 {
                 try
                 {
                     enteredNumber = Int32.Parse(stringEnteredNumber);
-                    foundPizza = pizzaManager.SearchPizzaByNumber(enteredNumber);
+                    foundPizza = _pizzaManager.SearchPizzaByNumber(enteredNumber);
                     if (foundPizza != null)
                     {
                         isValid = false;
@@ -100,10 +104,10 @@ namespace PizzariaAttempt2 {
 
         public void DeletePizza() 
         {
-            PizzaManager pizzaManager = new PizzaManager();
+            
             Console.WriteLine("What is the number of the pizza you want to delete?");
             
-            pizzaManager.DeletePizza(SearchPizzaByNumber());
+            _pizzaManager.DeletePizza(SearchPizzaByNumber());
             
         }
     }
