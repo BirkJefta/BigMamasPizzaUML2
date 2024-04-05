@@ -6,9 +6,6 @@ namespace PizzariaAttempt2 {
         {
             Store BigMamasPizza = new Store();
             BigMamasPizza.Test();
-
-
-
         }
     }
 }
