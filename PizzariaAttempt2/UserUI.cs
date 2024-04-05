@@ -133,10 +133,11 @@ namespace PizzariaAttempt2 {
 
                         if (quit.KeyChar == 'y' || quit.KeyChar == 'Y')
                         {
+                            Console.Beep();
                             proceed = false;
                         }
                         Thread.Sleep(500);
-                        Console.Beep();
+                        
 
                         break;
                     default:
