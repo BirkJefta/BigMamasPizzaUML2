@@ -18,7 +18,6 @@ namespace PizzariaAttempt2 {
             Name = name;
             Toppings = toppings;
             Price = price;
-            
         }
 
         public override string ToString()
